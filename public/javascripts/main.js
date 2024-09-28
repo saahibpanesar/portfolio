@@ -3,6 +3,50 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
+function btnHandler(event) {
+    event.preventDefault();
+
+    // Get form values
+    const spot = document.getElementById('spot').value;
+    const strike = document.getElementById('strike').value;
+    const rate = document.getElementById('rate').value;
+    const days = document.getElementById('days').value;
+    const volatility = document.getElementById('volatility').value;
+    const multiplier = document.getElementById('multiplier').value;
+
+    // Data object to be sent to the server
+    const data = {
+        spot: spot,
+        strike: strike,
+        rate: rate,
+        days: days,
+        volatility: volatility,
+        multiplier: multiplier
+    };
+
+    // Send a POST request to the backend with form data
+    fetch('/bs', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();  // Parse the JSON response
+    })
+    .then(result => {
+        // Update the result in the DOM
+        document.getElementById('result').innerText = `Call Price: ${result.callPrice}, Put Price: ${result.putPrice}`;
+    })
+    .catch(error => {
+        console.error('There was an error!', error);
+        document.getElementById('result').innerText = 'Error calculating the option price';
+    });
+};
 
 (function($) {
 
