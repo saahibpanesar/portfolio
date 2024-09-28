@@ -1,76 +1,160 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.js"></script>
-<link rel="stylesheet" href="./stylesheets/style.css">
-    <title>BS Calculator</title>
-</head>
-<body>
-<h1>Options Calculator</h1>
-    <div class="input-group">
-        <label for="spot">Spot:</label>
-        <input type="number" id="spot" step="0.01" required>
-    </div>
-    <div class="input-group">
-        <label for="strike">Strike:</label>
-        <input type="number" id="strike" step="0.01" required>
-    </div>
-    <div class="input-group">
-        <label for="rf_rate">Rf Rate:</label>
-        <input type="number" id="rf_rate" step="0.0001" required>
-    </div>
-    <div class="input-group">
-        <label for="days">Days:</label>
-        <input type="number" id="days" step="1" required>
-    </div>
-    <div class="input-group">
-        <label for="volatility">Volatility:</label>
-        <input type="number" id="volatility" step="0.0001" required>
-    </div>
-    <div class="input-group">
-        <label for="multiplier">Multiplier:</label>
-        <input type="number" id="multiplier" step="0.01" required>
-    </div>
-    <button onclick="calculate()">Calculate</button>
+<!DOCTYPE HTML>
+<html>
 
-    <table id="results">
-        <tr>
-            <th>Metric</th>
-            <th>Call</th>
-            <th>Put</th>
-        </tr>
-        <tr>
-            <td>Price</td>
-            <td id="call_price"></td>
-            <td id="put_price"></td>
-        </tr>
-        <tr>
-            <td>Delta</td>
-            <td id="call_delta"></td>
-            <td id="put_delta"></td>
-        </tr>
-        <tr>
-            <td>Gamma</td>
-            <td id="call_gamma"></td>
-            <td id="put_gamma"></td>
-        </tr>
-        <tr>
-            <td>Vega</td>
-            <td id="call_vega"></td>
-            <td id="put_vega"></td>
-        </tr>
-        <tr>
-            <td>Theta</td>
-            <td id="call_theta"></td>
-            <td id="put_theta"></td>
-        </tr>
-        <tr>
-            <td>Rho</td>
-            <td id="call_rho"></td>
-            <td id="put_rho"></td>
-        </tr>
-    </table>
+<head>
+	<title>Saahib Panesar</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="./stylesheets/style.css" />
+	<noscript>
+		<link rel="stylesheet" href="./stylesheets/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+	<!-- Wrapper -->
+	<div id="wrapper" class="fade-in">
+
+		<!-- Intro -->
+		<div id="intro">
+			<h1>This is<br />
+				Saahib Panesar</h1>
+			<p>An aspiring Finance Student, from University of Adelaide & Currently in my Final Year<br />
+				My <a href="https://www.linkedin.com/in/saahib-panesar/">linkedin</a><br />
+			</p>
+			<ul class="actions">
+				<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+			</ul>
+		</div>
+
+		<!-- Header -->
+		<header id="header">
+			<a href="/" class="logo">SP</a>
+		</header>
+
+		<!-- Main -->
+		<div id="main">
+
+			<!-- Featured Post -->
+			<article class="post featured">
+				<header class="major">
+					<span class="date">Finance</span>
+					<h2><a href="#">My Projects</a></h2>
+					<p> I have done these projects to showcase my application based skills in the field of finance.</p>
+				</header>
+				<a href="#" class="image main"><img src="./images/pic01.jpg" alt="" /></a>
+				<button onclick="window.location.href='/subpage'" id="calculateButton">Black Scholes Calculator</button>
+				<h2><a href="#"></a></h2>
+				</p> This tool has been created by me for the purpose of pricing call & put option, specifically in the
+				Europeon Markets </p>
+			</article>
+
+			<section class="posts">
+				<article>
+					<header>
+						<h2><a href="#">Project 1<br />Portfolio Management</a></h2>
+					</header>
+					<a href="#" class="image fit"><img src="./images/pic02.jpg" alt="" /></a>
+					<p> Created a Dollar Optimisatied Portfolio, to allocate our assets in 8 different sectors. For
+						better Optimisation we have used Solver & Monte Carlo Simulation to produce accurate results.
+					</p>
+					<ul class="actions special">
+						<li><a href="https://docs.google.com/spreadsheets/d/1BWrhP9QrkGX_Em8FdN-vicbk2s0yMHNsSTuOp2HeHWA/edit?usp=sharing"
+								class="button">Excel Model</a></li>
+					</ul>
+				</article>
+				<article>
+					<header>
+						<h2><a href="#"> Project 2<br />Mergers & Acquisitions</a></h2>
+					</header>
+					<a href="#" class="image fit"><img
+							src="./images/DALL·E 2024-09-14 21.37.31 - A dynamic corporate office scene showing a merger and acquisition meeting between executives of two companies. The setting features a large boardroom .webp"
+							alt="" /></a>
+					<p>Here we have created an excel model which shows the analysis of Merger & Acquisitions activity &
+						the Valuation of the Target Firm
+					</p>
+					<ul class="actions special">
+						<li><a href="https://docs.google.com/spreadsheets/d/1WQFGZKDdiWLHAnEVthRqqnkhSKoOFbqkg3IHgqogm3c/edit?usp=sharing"
+								class="button">Excel Model</a></li>
+					</ul>
+				</article>
+				<article>
+					<header>
+						<h2><a href="#">Project 3<br />Equity Research</a></h2>
+						</headebv>
+						<a href="#" class="image fit"><img src="./images/6b75f43b-d70c-4b6e-be4d-c2258b81ce6c.webp"
+								alt="" /></a>
+						<p>This is a fact sheet produced by us on - stocks name -, </p>
+						<ul class="actions special">
+							<li><a href="#" class="button">Model</a></li>
+						</ul>
+				</article>
+				<article>
+					<header>
+						<h2><a href="#">Project 4<br />DCF Model</a></h2>
+					</header>
+					<a href="#" class="image fit"><img
+							src="./images/DALL·E 2024-09-14 21.55.07 - A close-up view of a DCF (Discounted Cash Flow) valuation spreadsheet open on a laptop screen. The screen displays detailed financial projections, inc.webp"
+							alt="" /></a>
+					<p>We have used "Aswath Damodarans", DCF valuation method to value the stock price of NVIDIA. </p>
+					<ul class="actions special">
+						<li><a href="https://docs.google.com/spreadsheets/d/1aJWkvtChh-cZIxRh09RD6X8UgzyiPjK1axnxvuj5Pic/edit?usp=sharing"
+								class="button">Model</a></li>
+					</ul>
+				</article>
+			</section>
+
+			<!-- Footer -->
+			<footer>
+				<div class="pagination">
+					<!--<a href="#" class="previous">Prev</a>-->
+				</div>
+			</footer>
+		</div>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<section>
+				<form method="post" action="#">
+					<iframe
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28044.00063032221!2d138.5801533298843!3d-34.9257142753395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ab0ced7a303a4e7%3A0x9ccc22c9e8b983e!2sAdelaide%20CBD%2C%20Adelaide%20SA%205000!5e1!3m2!1sen!2sau!4v1726323302343!5m2!1sen!2sau"
+						width="450" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+						referrerpolicy="no-referrer-when-downgrade"></iframe>
+				</form>
+			</section>
+			<section class="split contact">
+
+				<section>
+					<h3>Phone</h3>
+					<p><a href="tel:+61405 465 514">+61 405 465 514 </a></p>
+				</section>
+				<section>
+					<h3>Email</h3>
+					<p><a href="mailto:panesarsaahib@gmail.com">panesarsaahib@gmail.com</a>.</p>
+				</section>
+			</section>
+		</footer>
+
+		<!-- Copyright -->
+		<div id="copyright">
+			<ul>
+				<li>&copy; Untitled</li>
+				<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+			</ul>
+		</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="./javascripts/jquery.min.js"></script>
+	<script src="./javascripts/jquery.scrollex.min.js"></script>
+	<script src="./javascripts/jquery.scrolly.min.js"></script>
+	<script src="./javascripts/browser.min.js"></script>
+	<script src="./javascripts/breakpoints.min.js"></script>
+	<script src="./javascripts/util.js"></script>
+	<script src="./javascripts/main.js"></script>
+	<!-- <script src="index.js"></script> -->
+
 </body>
+
 </html>
