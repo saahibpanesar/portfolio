@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.js"></script>
+<link rel="stylesheet" href="./stylesheets/style.css">
+    <title>BS Calculator</title>
+</head>
+<body>
+<h1>Options Calculator</h1>
+    <div class="input-group">
+        <label for="spot">Spot:</label>
+        <input type="number" id="spot" step="0.01" required>
+    </div>
+    <div class="input-group">
+        <label for="strike">Strike:</label>
+        <input type="number" id="strike" step="0.01" required>
+    </div>
+    <div class="input-group">
+        <label for="rf_rate">Rf Rate:</label>
+        <input type="number" id="rf_rate" step="0.0001" required>
+    </div>
+    <div class="input-group">
+        <label for="days">Days:</label>
+        <input type="number" id="days" step="1" required>
+    </div>
+    <div class="input-group">
+        <label for="volatility">Volatility:</label>
+        <input type="number" id="volatility" step="0.0001" required>
+    </div>
+    <div class="input-group">
+        <label for="multiplier">Multiplier:</label>
+        <input type="number" id="multiplier" step="0.01" required>
+    </div>
+    <button onclick="calculate()">Calculate</button>
+
+    <table id="results">
+        <tr>
+            <th>Metric</th>
+            <th>Call</th>
+            <th>Put</th>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td id="call_price"></td>
+            <td id="put_price"></td>
+        </tr>
+        <tr>
+            <td>Delta</td>
+            <td id="call_delta"></td>
+            <td id="put_delta"></td>
+        </tr>
+        <tr>
+            <td>Gamma</td>
+            <td id="call_gamma"></td>
+            <td id="put_gamma"></td>
+        </tr>
+        <tr>
+            <td>Vega</td>
+            <td id="call_vega"></td>
+            <td id="put_vega"></td>
+        </tr>
+        <tr>
+            <td>Theta</td>
+            <td id="call_theta"></td>
+            <td id="put_theta"></td>
+        </tr>
+        <tr>
+            <td>Rho</td>
+            <td id="call_rho"></td>
+            <td id="put_rho"></td>
+        </tr>
+    </table>
+</body>
+</html>
