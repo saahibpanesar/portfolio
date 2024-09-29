@@ -39,12 +39,12 @@ function btnHandler(event) {
         return response.json();  // Parse the JSON response
     })
     .then(result => {
-        // Update the result in the DOM
-        document.getElementById('result').innerText = `Call Price: ${result.callPrice}, Put Price: ${result.putPrice}`;
+		// Update the result in the DOM
+		document.getElementById('result').innerHTML += `<table><thead><tr><td>Call</td><td>Key</td><td>Put</td></tr></thead><tbody><tr><td>${result.callPrice}</td><td>Price</td> <td>${result.putPrice}</td> </tr><tr><td>${result.callDelta}</td><td>Delta</td> <td>${result.putDelta}</td> </tr><tr><td>${result.callGamma}</td><td>Gamma</td> <td>${result.putGamma}</td> </tr><tr><td>${result.callVega}</td><td>Vega</td> <td>${result.putVega}</td> </tr><tr><td>${result.callTheta}</td><td>Theta</td> <td>${result.putTheta}</td> </tr><tr><td>${result.callRho}</td><td>Rho</td> <td>${result.putRho}</td> </tr></tbody></table>`;
     })
     .catch(error => {
         console.error('There was an error!', error);
-        document.getElementById('result').innerText = 'Error calculating the option price';
+        document.getElementById('result').innerHTML = 'Error calculating the option price';
     });
 };
 
